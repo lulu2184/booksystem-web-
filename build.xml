@@ -1,0 +1,60 @@
+<project name="Menglulu" default="all" basedir=".">
+
+    <property name="app.name"      value="menglulu"/>
+    <property name="build.home"    value="${basedir}/build"/>
+    <property name="dist.home"     value="${basedir}/dist"/>
+    <property name="src.home"      value="${basedir}/src"/>
+    <property name="web.home"      value="${basedir}/web"/>
+    <property name="deploy.dir"    value="/Library/Tomcat/webapps"/>
+
+    <!-- ==================== External Dependencies =========================== -->
+    <property name="MysqlJar" value="${basedir}/lib/mysql.jar"/>
+
+    <!-- ==================== Compilation Classpath =========================== -->
+    <path id="compile.classpath">
+        <pathelement location="${MysqlJar}"/>
+    </path>
+
+    <target name="all" depends="clean,compile,dist" description="Clean build and dist directories, then compile"/>
+
+    <target name="clean" description="Delete old build and dist directories">
+        <delete dir="${build.home}"/>
+        <delete dir="${dist.home}"/>
+    </target>
+
+    <target name="compile" depends="prepare" description="Compile Java sources">
+        <!-- Compile Java classes as necessary -->
+        <mkdir dir="${build.home}/WEB-INF/classes"/>
+        <javac srcdir="${src.home}" destdir="${build.home}/WEB-INF/classes">
+            <classpath refid="compile.classpath"/>
+        </javac>
+
+        <!-- Copy application resources -->
+        <copy todir="${build.home}/WEB-INF/classes">
+            <fileset dir="${src.home}" excludes="**/*.java"/>
+        </copy>
+
+    </target>
+
+    <target name="dist" depends="compile" description="Create binary distribution">
+        <!-- Create application JAR file -->
+        <jar jarfile="${dist.home}/${app.name}.war" basedir="${build.home}"/>
+    </target>
+
+    <target name="prepare">
+        <!-- Create build directories as needed -->
+        <mkdir  dir="${build.home}"/>
+        <mkdir  dir="${build.home}/WEB-INF"/>
+        <mkdir  dir="${build.home}/WEB-INF/classes"/>
+
+        <!-- Copy static content of this web application -->
+        <copy todir="${build.home}">
+            <fileset dir="${web.home}"/>
+        </copy>
+
+        <!-- Copy external dependencies as required -->
+        <mkdir  dir="${build.home}/WEB-INF/lib"/>
+        <copy todir="${build.home}/WEB-INF/lib" file="${MysqlJar}"/>
+    </target>
+
+</project>
