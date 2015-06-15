@@ -21,7 +21,7 @@
 						Connector.start();
 						List<List<IntStrPair>> query = new ArrayList<List<IntStrPair>>();
 						QueryResult rs= new BookBrowsing(query, 1).query();
-						String enterElement = "<a href=\"abook.jsp?%s\" class=\"details\">details</a>";
+						String enterElement = "<a href=\"abook.jsp?%s\" class=\"details\">feedbacks</a>";
 						out.println(QueryResultToHtml.transform(rs, "ISBN", enterElement));
 				    }catch (Exception e){
 				    	out.println("An Exception occured: " + e.getMessage());

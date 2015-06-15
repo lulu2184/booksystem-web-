@@ -1,11 +1,11 @@
 table{
-	border: 1px blue solid;
+	border: 1px #bebebe solid;
 	width: 100%;
 	border-radius: 6px;
 	
 }
 td{
-	border: 1px blue solid;
+	border: 1px #bebebe solid;
 }
 tr{
 	text-align: center;
@@ -24,4 +24,28 @@ tr{
 
 .details:visited{
 	background-color: #229ffd;
-};
+}
+
+.radius-grey-div{
+	border: 1px #bebebe solid;
+	border-radius: 15px;
+	vertical-align: middle;
+	left:auto;
+	text-align: center;
+	padding: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.login-box{
+	width: 300px;
+	height: 90px;
+}
+
+input{
+	margin: 5px;
+}
+
+h1{
+	text-align: center;
+}

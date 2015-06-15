@@ -4,7 +4,7 @@
 	<link href="css/index.css" rel="stylesheet">
 	<title>JSP Example</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<script type="script/index.js"></script>
+	<script src="script/index.js"></script>
 </head>
 
 <body>
@@ -18,8 +18,16 @@
 				<div class="user-info">
 					<img src="img/user-img.jpg" id="user-img"/>
 					<div id="user-access-block">
-						<button class="small-button" onclick="login_page()"><a href>login</a></button>
+					<%
+						String user=(String)session.getAttribute("user");
+						if (user==null || user.equals("")){ 
+					%>
+						<input type="button" class="small-button" onclick="login_page()" value="login"/>
 						<button class="small-button">register</button>
+					<% }else{  %>
+						<p id="username">Hello, <%= user %></p>
+						<input type="button" class="small-button" onclick="logout()" value="logout"/>
+					<% } %>
 					</div>
 				</div>
 				<div id="navigate">

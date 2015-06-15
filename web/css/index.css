@@ -19,6 +19,11 @@ div#navigate ul{
 	margin:0;
 	padding: 0;
 }
+
+div#userpic{
+	width: 100%;
+	text-align: center;
+}
 .user-info{
 	width: 200px;
 	height: 200px;
@@ -36,10 +41,15 @@ div#navigate{
 img#user-img{
 	width: 100px;
 	height: 100px;
-	position: relative;
-	left:50px;
+	/*position: relative;*/
+	/*left:50px;*/
 	top:20px;
-	float: left;
+	/*float: left;*/
+	margin-left: auto;
+	margin-right: auto;
+	display: table-row;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 .sidebar-button li{
 	width:100%;
@@ -92,9 +102,10 @@ div#footer p{
 }
 
 .small-button{
+	display: table-column;
 	background-color: #1abc9c;
 	color:white;
- 	padding: 5px 10px;
+	padding: 5px 10px;
  	font-size: 5px;
  	font-weight: 400;
  	line-height: 1.4;
@@ -105,11 +116,16 @@ div#footer p{
  	-webkit-font-smoothing: subpixel-antialiased;
 }
 div#user-access-block{
-	left:30px;
-	float: left;
-	margin: 40px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
 }
 
 div#user-info{
 	float: left;
+}
+
+p#username{
+	display: block;
+	color: white;
 }

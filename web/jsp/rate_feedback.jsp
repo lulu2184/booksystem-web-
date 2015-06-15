@@ -14,9 +14,9 @@
 		<script LANGUAGE="javascript">
 
 			function check_all_fields(form_obj){
-				alert(form_obj.searchAttribute.value+"='"+form_obj.attributeValue.value+"'");
-				if( form_obj.attributeValue.value == ""){
-					alert("Search field should be nonempty");
+				//alert(form_obj.score.value+"='"+form_obj.score.value+"'");
+				if(form_obj.score.value == ""){
+					alert("score should be nonempty");
 					return false;
 				}
 				return true;
@@ -33,8 +33,7 @@
 
 %>
 		<form name="rate_for_feedback" method=get onsubmit="return check_all_fields(this)" action="handle/rate_feedback.jsp">
-			<input type=hidden name="searchAttribute" value="login">
-			<input type=text name="attributeValue" length=10>
+			<input type="text" name="score" value="score">
 			<input type=submit>
 		</form>
 <%		try{
