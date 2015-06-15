@@ -1,5 +1,5 @@
 <%@ page language="java" import="backend.query.QueryResult" %>
-<%@ page language="java" import="backend.query.BookBrowsing" %>
+<%@ page language="java" import="backend.query.UsefulFeedback" %>
 <%@ page language="java" import="backend.query.IntStrPair" %>
 <%@ page language="java" import="java.util.ListIterator" %>
 <%@ page language="java" import="java.util.List" %>
@@ -17,17 +17,18 @@
 	<body>	
 			
 <%
-					try{
-						Connector.start();
-						List<List<IntStrPair>> query = new ArrayList<List<IntStrPair>>();
-						QueryResult rs= new BookBrowsing(query, 1).query();
-						String enterElement = "<a href=\"abook.jsp?%s\" class=\"details\">details</a>";
-						out.println(QueryResultToHtml.transform(rs, "ISBN", enterElement));
-				    }catch (Exception e){
-				    	out.println("An Exception occured: " + e.getMessage());
-					}finally{
-						Connector.close();				        
-					}
+		String book = request.getParameter("ISBN");					
+		out.println("<p1>" + book + "</p1>");
+		try{
+			Connector.start();
+			QueryResult rs= new UsefulFeedback(book, 10).query();
+			String enterElement = "<a href=\"rate_feedback.jsp?%s\" class=\"details\">rate for it</a>";
+			out.println(QueryResultToHtml.transform(rs, "fid", enterElement));
+	    }catch (Exception e){
+	    	out.println("An Exception occured: " + e.getMessage());
+		}finally{
+			Connector.close();				        
+		}
 %>
 	</body>
 

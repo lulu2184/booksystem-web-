@@ -1,6 +1,6 @@
-<project name="Menglulu" default="all" basedir=".">
+<project name="booksystem" default="all" basedir=".">
 
-    <property name="app.name"      value="menglulu"/>
+    <property name="app.name"      value="booksystem"/>
     <property name="build.home"    value="${basedir}/build"/>
     <property name="dist.home"     value="${basedir}/dist"/>
     <property name="src.home"      value="${basedir}/src"/>
