@@ -41,7 +41,7 @@ public class QueryResultToHtml {
         return htmlMsg;
     }
 
-    public static String transform(QueryResult rs, String keyField, String dElement){
+    public static String transform(QueryResult rs, List<String> keyField, List<String> dElement){
         String htmlMsg = "";
         if (!rs.isValid()){
             htmlMsg = "Sorry, " + rs.getMessage();
@@ -62,15 +62,25 @@ public class QueryResultToHtml {
                 row = row_it.next();
                 ListIterator <String> value_it = row.listIterator();
                 field_it = rs.fields_name.listIterator();
-                String value = "";
+                //String value = "";
                 while (value_it.hasNext()) {
                     String tv = value_it.next();
-                    if (field_it.next() == keyField){
-                        value = tv;
-                    }
                     htmlMsg += "<td>" + tv + "</td>";
                 }
-                htmlMsg += String.format("<td>" + dElement + "</td>", keyField + "=" + value);
+                ListIterator <String> key = keyField.listIterator();
+                ListIterator <String> element = dElement.listIterator();
+                while (key.hasNext() && element.hasNext()){
+                    String thisKey = key.next();
+                    value_it = row.listIterator();
+                    field_it = rs.fields_name.listIterator();
+                    while (value_it.hasNext() && field_it.hasNext()){
+                        String value = value_it.next();
+                        if (field_it.next().equals(thisKey)){
+                            htmlMsg += String.format("<td>" + element.next() + "</td>", thisKey + "=" + value);
+                            break;
+                        }
+                    }
+                }
                 htmlMsg += "</tr>";
             }
 

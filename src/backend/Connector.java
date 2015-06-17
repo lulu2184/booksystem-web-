@@ -27,7 +27,7 @@ public class Connector {
           //  try{
                 String userName = "fudanu30";
                 String password = "nrkgn719";
-                String url = "jdbc:mysql://10.141.208.26/fudandbd30";
+                String url = "jdbc:mysql://10.141.208.26/fudandbd30?useUnicode=true&characterEncoding=utf8";
                 Class.forName ("com.mysql.jdbc.Driver").newInstance ();
                 con = DriverManager.getConnection(url, userName, password);
                 stmt = con.createStatement();

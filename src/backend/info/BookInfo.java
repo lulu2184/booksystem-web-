@@ -60,8 +60,13 @@ public class BookInfo {
         if (!result.isValid()){
             return result;
         }
+        /*if (ISBN.length() < shortest_ISBN || ISBN.length() > longest_ISBN){
+            return CheckResult.createFail("Length of ISBN is not between " + Integer.toString(shortest_ISBN) + " and " +
+            Integer.toString(longest_ISBN) + ".");
+        }*/
         if (title.length() < shortest_title || title.length() > longest_title){
-            return result;
+            return CheckResult.createFail("Length of title is not between " + Integer.toString(shortest_title) + " and " +
+            Integer.toString(longest_title) + ".");
         }
         result = new StringFieldCheck(format, "format", shortest_format, longest_format, null).check();
         if (!result.isValid()){
