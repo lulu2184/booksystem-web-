@@ -77,6 +77,10 @@ tr{
 	text-align: right;
 }
 
+.give-trust-score-box{
+	width: 200px;
+}
+
 input{
 	margin: 5px;
 }

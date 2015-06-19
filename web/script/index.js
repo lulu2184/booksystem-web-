@@ -7,7 +7,7 @@ function orders_page(){
 }
 
 function summary_page() {
-
+	document.getElementById("embed_page").src="jsp/summary.jsp"
 }
 
 function login_page(){

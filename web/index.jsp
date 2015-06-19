@@ -33,16 +33,19 @@
 				<div id="navigate">
 					<ul>
 						<li>
-							<input type="button" class="sidebar-button" id="users-button" onclick="books_page()" value="Books"/>
+							<input type="button" class="sidebar-button" id="books-button" onclick="books_page()" value="Books"/>
 						</li>
 						<li>
 							<input type="button" class="sidebar-button" id="users-button" onclick="users_page()" value="Users"/>
 						</li>
 						<li>
-							<input type="button" class="sidebar-button" id="users-button" onclick="orders_page()" value="Orders"/>
+							<input type="button" class="sidebar-button" id="orders-button" onclick="orders_page()" value="Orders"/>
 						</li>
 						<li>
-							<input type="button" class="sidebar-button" id="users-button" onclick="summary_page()" value="Summary"/>
+							<input type="button" class="sidebar-button" id="summary-button" onclick="summary_page()" value="Summary"/>
+						</li>
+						<li>
+							<input type="button" class="sidebar-button" id="browsing-button" onclick="browsing()" value="Book Browsing"/>
 						</li>
 					</ul>
 				</div>

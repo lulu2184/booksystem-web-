@@ -13,7 +13,10 @@
 	</head>
 
 	<body>	
-			
+		<div>
+			<h1>Users</h1>
+		</div>	
+		<div>		
 <%
 					try{
 						Connector.start();
@@ -30,6 +33,7 @@
 						Connector.close();				        
 					}
 %>
+		</div>
 	</body>
 
 </html>

@@ -10,9 +10,9 @@ public class BuyingSuggestion extends Query{
     private String username;
     private static final String[] field_name = {"ISBN", "title", "sales count"};
 
-    public BuyingSuggestion(String book){
+    public BuyingSuggestion(String username, String book){
         this.book = book;
-        this.username = User.getUsername().replaceAll("'", "''");
+        this.username = username.replaceAll("'", "''");
         result.setFieldsName(field_name);
         column_name = new String[] {"B2.ISBN","B2.title", "count"};
     }
