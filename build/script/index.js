@@ -3,7 +3,7 @@ function books_page(){
 }
 
 function orders_page(){
-
+	document.getElementById("embed_page").src="jsp/orders.jsp"
 }
 
 function summary_page() {

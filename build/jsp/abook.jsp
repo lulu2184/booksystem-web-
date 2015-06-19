@@ -20,6 +20,11 @@
 				}
 				return true;
 			}
+
+			function give_feedback(para){
+				console.log(para);
+				self.location = "give_feedback.jsp?ISBN=" + para;
+			}
 		</script>
 	</head>
 

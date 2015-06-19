@@ -9,10 +9,11 @@ import java.sql.SQLException;
  */
 public class OrderSummary extends Query{
     private String orderid;
-    private static final String[] field_name = {"ISBN", "number in order"};
+    private static final String[] field_name = {"ISBN", "quantity"};
 
-    public OrderSummary(){
+    public OrderSummary(String orderid){
         result.setFieldsName(field_name);
+        this.orderid = orderid;
         column_name = new String[]{"ISBN", "num"};
     }
 
@@ -21,7 +22,7 @@ public class OrderSummary extends Query{
     }
 
     protected boolean check()throws SQLException{
-        orderid = Order.getOrderString();
+        //orderid = Order.getOrderString();
         return true;
     }
 }
