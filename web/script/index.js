@@ -24,6 +24,9 @@ function register_page(){
 }
 
 function users_page(){
-	console.log("a");
 	document.getElementById("embed_page").src="jsp/users.jsp";
+}
+
+function browsing(){
+	document.getElementById("embed_page").src="jsp/browsing.jsp";
 }

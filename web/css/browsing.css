@@ -1,0 +1,15 @@
+span{
+	display: inline-block;
+}
+
+p{
+	margin: 0px;
+}
+
+.browsing-box{
+	width: 650px;
+}
+
+.browsing-input{
+	width: 50px;
+}
