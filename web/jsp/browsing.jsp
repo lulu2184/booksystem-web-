@@ -27,7 +27,7 @@
 				<br/>
 				<input type="button" onclick="add_or()" value="+ or" id="or_button"/>
 				<br/><br/>
-				<input type="submit" value="finish"/>
+				<input type="button" onclick="finish()" value="finish"/>
 			</form>
 		</div>
 	</body>

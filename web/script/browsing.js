@@ -89,5 +89,18 @@ function add_or(){
 }
 
 function finish(){
+	if (check_notnull() == false){
+		return false;
+	}
+	var form=document.getElementById("condition_form");
+	var oldAnd = document.getElementById("and_button");
+	form.removeChild(oldAnd);
+	var oldOr = document.getElementById("or_button");
+	form.removeChild(oldOr);
+	for (var i=0;i<form.length;i++){
+		var e=form[i];
+		e.setAttribute("readonly", "true");
+	}
 	
+	form.appendChild()
 }
