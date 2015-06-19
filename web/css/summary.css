@@ -1,0 +1,27 @@
+.summary-element{
+  width: 400px;
+  padding: 30px;
+  text-align: center;
+  float: left;
+  margin: 20px;
+  padding-top: 10px;
+}
+.half-div{
+  width: 45%;
+  height: 100%;
+  float: left;
+  padding: 10px;
+}
+
+.content{
+	width: 100%;
+	height: auto;
+}
+
+span#degree_result{
+	text-align: left;
+}
+
+p#degree-result-p{
+	text-align: left;
+}
