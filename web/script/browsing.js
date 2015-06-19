@@ -88,19 +88,31 @@ function add_or(){
 	pos.parentNode.insertBefore(br, pos);
 }
 
-function finish(){
+function finish_action(){
 	if (check_notnull() == false){
 		return false;
 	}
 	var form=document.getElementById("condition_form");
-	var oldAnd = document.getElementById("and_button");
-	form.removeChild(oldAnd);
-	var oldOr = document.getElementById("or_button");
-	form.removeChild(oldOr);
+	form.removeChild(document.getElementById("and_button"));
+	//var oldOr = document.getElementById("or_button");
+	form.removeChild(document.getElementById("or_button"));
+	form.removeChild(document.getElementById("finish"));
 	for (var i=0;i<form.length;i++){
 		var e=form[i];
 		e.setAttribute("readonly", "true");
 	}
-	
-	form.appendChild()
+	var word=document.createElement("span");
+	word.innerHTML="<p>Order by:</p>";
+	form.appendChild(word);
+	var select=document.createElement("select");
+	select.setAttribute("type","option");
+	select.setAttribute("name","order_type");
+	select.innerHTML="<option value=\"author\">author</option>"
+					+"<option value=\"score\">average score of feedbacks</option>"
+					+"<option value=\"trusted\">average score of feedbacks of trusted users</option>";
+	form.appendChild(select);
+	form.appendChild(document.createElement("br"));
+	var button=document.createElement("input");
+	button.setAttribute("type", "submit");
+	form.appendChild(button);
 }
