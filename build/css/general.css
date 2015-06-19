@@ -12,6 +12,10 @@ tr{
 }
 
 
+.give-feedback-box{
+	width: 300px;
+}
+
 .details{
 	background-color: #1B9AF7;
 	border-color: #1B9AF7;
@@ -65,10 +69,23 @@ tr{
 	width: 300px;
 }
 
+.rate-feedback-box{
+	width: 300px;
+}
+
+.result-num-form{
+	text-align: right;
+}
+
 input{
 	margin: 5px;
 }
 
 h1{
 	text-align: center;
+}
+
+textarea{
+	height: 150px;
+	width: 250px;
 }

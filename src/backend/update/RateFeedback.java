@@ -15,10 +15,10 @@ public class RateFeedback extends Update{
     private Integer score;
     private String username;
 
-    public RateFeedback(long fid, Integer score){
+    public RateFeedback(String username, long fid, Integer score){
         this.fid = fid;
         this.score = score;
-        this.username = User.getUsername().replaceAll("'", "''");
+        this.username = username.replaceAll("'", "''");
     }
 
     protected CheckResult formatCheck(){

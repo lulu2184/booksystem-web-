@@ -21,8 +21,8 @@ public class UsefulFeedback extends Query{
 
     protected void getSQL(){
         sql = "SELECT " + " F.fid, avg(R.rate_num), F.username, F.propose_date, F.content "
-                + "FROM Rate R, Feedback F "
-                + "WHERE R.fid = F.fid AND F.ISBN = '" + book + "'"
+                + "FROM  Feedback F LEFT JOIN Rate R ON R.fid = F.fid "
+                + "WHERE F.ISBN = '" + book + "' "
                 + "GROUP BY F.fid "
                 + "ORDER BY avg(R.rate_num) DESC "
                 + "LIMIT " + number.toString() + ";";

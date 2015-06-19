@@ -21,12 +21,12 @@ public class GiveFeedback extends Update{
     private Date date;
     private static SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm::ss");
 
-    public GiveFeedback(String book, Integer score, String content){
+    public GiveFeedback(String username, String book, Integer score, String content){
         this.book = book.replaceAll("'", "''");
         this.score = score;
         this.content = content.replaceAll("'", "''");
         this.fid = GenerateNewID.generate();
-        this.username = User.getUsername().replaceAll("'", "''");
+        this.username = username.replaceAll("'", "''");
         this.date = new Date();
     }
 

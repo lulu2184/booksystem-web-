@@ -7,13 +7,20 @@
 
 	<body>
 		<div>
+			<% String ISBN=request.getParameter("ISBN"); %>
 			
-			<h1>Give Feedback</h1>
-			<div class="radius-grey-div register-box">
-				<form name="login_form" method=post action="handle/give_feedback.jsp">
-					User name: <input type="text" name="username"/>
+			<h1>Give Feedback to # <%=ISBN%></h1>
+			<div class="radius-grey-div give-feedback-box">
+				<form name="give_feedback_form" method=post action= <%="\"handle/give_feedback.jsp?ISBN=" + ISBN + "\""%>>
+					Score:<select name="score">
+						<% for (int i = 0; i <= 10; ++i){ %>
+								<option value=<%=Integer.toString(i)%>><%=Integer.toString(i)%></option>	
+						<%	}  %>
+					</select>
 					<br/>
-					Password: <input type="password" name="password"/>
+					Comment:
+					<br/>
+					<textarea name="comment" id="comment"> </textarea>
 					<br/>
 					<input type="submit" name="Submit"/>
 				</form>

@@ -11,40 +11,45 @@
 <html>
 	<head>
 		<link href="../css/general.css" rel="stylesheet">
-		<script LANGUAGE="javascript">
-
-			function check_all_fields(form_obj){
-				//alert(form_obj.score.value+"='"+form_obj.score.value+"'");
-				if(form_obj.score.value == ""){
-					alert("score should be nonempty");
-					return false;
-				}
-				return true;
-			}
-
-		</script> 
 	</head>
 
 	<body>	
-			
-<%
-		String feedback = request.getParameter("fid");					
-		out.println("<p1>" + "rate for feedback #" + feedback + "</p1>");
+		<% String user = (String)session.getAttribute("user"); 
 
-%>
-		<form name="rate_for_feedback" method=get onsubmit="return check_all_fields(this)" action="handle/rate_feedback.jsp">
-			<input type="text" name="score" value="score">
-			<input type=submit>
-		</form>
-<%		try{
-			Connector.start();
+		if (user == null || user.equals("")){
+			out.println("Please login first.");%>
+			<meta http-equiv="Refresh" content="5;url=../html/login.html" />
+		<% } else{ %>
 
-	    }catch (Exception e){
-	    	out.println("An Exception occured: " + e.getMessage());
-		}finally{
-			Connector.close();				        
-		}
-%>
+		<div class="radius-grey-div rate-feedback-box">
+	<%
+			String feedback = request.getParameter("fid");	
+			String ISBN = request.getParameter("ISBN");				
+			out.println("<p1>" + "rate for feedback #" + feedback + "</p1>");
+
+	%>
+			<form name="rate_for_feedback" method=post action=<%="\"handle/rate_feedback.jsp?fid=" + feedback + "\"" %>>
+				Score:
+				<select name="score">
+					<% for (int i = 0; i <= 2; ++i){ %>
+							<option value=<%=Integer.toString(i)%>><%=Integer.toString(i)%></option>	
+					<%	}  %>
+				</select>
+				<br/>
+				<input type="submit">
+			</form>
+	<%		try{
+				Connector.start();
+
+		    }catch (Exception e){
+		    	out.println("An Exception occured: " + e.getMessage());
+			}finally{
+				Connector.close();				        
+			}
+	%>
+		</div>
+
+		<% } %>
 	</body>
 
 </html>
