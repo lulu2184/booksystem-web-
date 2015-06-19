@@ -20,15 +20,21 @@
 	<body>	
 		
 			<% String user = (String)session.getAttribute("user"); 
+				String order = (String)session.getAttribute("order");
 				if (user == null || user.equals("")){ %>
 					<p>Please login first.</p>
 				<%}else{ %>
 					<div>
 						<h1>Your Orders</h1>
 					</div>
+					<% if (order == null || order.equals("")){  %>
 						<input type="button" class="small-button" value="+ Start New Order" 
 								onclick="new_order()"/>
-					<div>
+					<% }else{ %>
+						<input type="button" class="small-button" value="Current Order" 
+								onclick="new_order()"/>
+					<% } %>
+ 					<div>
 <%					try{
 						Connector.start();
 						QueryResult rs = new OrderList(user).query();

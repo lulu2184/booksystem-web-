@@ -13,10 +13,12 @@ import java.sql.SQLException;
 public class InsertABookInOrder extends Update{
     private String book;
     private int qty;
+    private String orderid; 
 
-    public InsertABookInOrder(String book, int qty){
+    public InsertABookInOrder(String order, String book, int qty){
         this.book = book.replaceAll("'", "''");
         this.qty = qty;
+        this.orderid = order;
     }
 
     protected CheckResult formatCheck(){
@@ -28,8 +30,7 @@ public class InsertABookInOrder extends Update{
 
     protected void getSQLList() throws SQLException{
         String sql;
-        String orderid = Order.getOrderString();
-        if (ExistingCheck.checkPair("InOrder", "orderid", Order.getOrderString(), "ISBN", addQuotes(book))){
+        if (ExistingCheck.checkPair("InOrder", "orderid", orderid, "ISBN", addQuotes(book))){
             sql = "UPDATE InOrder SET num = num + " + Integer.toString(qty) + " WHERE ISBN = '" + book + "' AND orderid = " + orderid + ";";
         }else {
             sql = "INSERT INTO InOrder(orderid, ISBN, num) VALUES(" + orderid + ", '" + book + "', " + Integer.toString(qty) + ");";

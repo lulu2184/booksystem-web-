@@ -20,22 +20,22 @@ public class Order {
     }
 
     public static long getOrderid()throws NullPointerException, SQLException{
-        return getInstance().orderid;
+        return oneInstance.orderid;
     }
 
     public static String getOrderString() throws NullPointerException, SQLException{
         return Long.toString(getOrderid());
     }
 
-    private static Order getInstance() throws NullPointerException, SQLException{
-        if (oneInstance == null) {
-            createNewOrder();
-        }
-        return oneInstance;
-    }
+    // private static Order getInstance() throws NullPointerException, SQLException{
+    //     if (oneInstance == null) {
+    //         createNewOrder();
+    //     }
+    //     return oneInstance;
+    // }
 
-    public static long createNewOrder() throws SQLException{
-        long ID = createNewOrderID();
+    public static long createNewOrder(String username) throws SQLException{
+        long ID = createNewOrderID(username);
         oneInstance = new Order(ID);
         return ID;
     }
@@ -44,11 +44,11 @@ public class Order {
         oneInstance = null;
     }
 
-    private static long createNewOrderID() throws SQLException{
+    private static long createNewOrderID(String username) throws SQLException{
         Date date = new Date();
         long orderid = GenerateNewID.generate();
         String sql = "INSERT INTO Orders(orderid, order_date, username) VALUES(" + Long.toString(orderid) + ", '"
-                + dateformat.format(date) + "', '" + User.getUsername().replaceAll("'", "''") + "');";
+                + dateformat.format(date) + "', '" + username.replaceAll("'", "''") + "');";
         Connector.ExecuteInsertion(sql);
         return orderid;
     }
