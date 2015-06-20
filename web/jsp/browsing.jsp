@@ -14,14 +14,14 @@
 			Condition:<br/>
 			<form id="condition_form" method=post onsumbit="check_notnull()" action="handle/browsing.jsp">
 				<span>(</span>
-				<select type="option" id="condition_left11">
-					<option value="author">author</option>
-					<option value="publisher">publisher</option>
-					<option value="title">title word</option>
-					<option value="subject">subject</option>
+				<select type="option" name="condition_left_1_1">
+					<option value="0">author</option>
+					<option value="1">publisher</option>
+					<option value="2">title word</option>
+					<option value="3">subject</option>
 				</select>
 				<span>=</span>
-				<input type="text" id="condition_right11" class="browsing-input"/>
+				<input type="text" name="condition_right_1_1" class="browsing-input"/>
 				<input type="button" onclick="add_and()" value="+ and" id="and_button"/>
 				<span>)</span>
 				<br/>

@@ -11,8 +11,8 @@ public class BookBrowsing extends Query{
     private List<List<IntStrPair>> query;
     private int orderType;
     private String[] field_name = {"ISBN", "title", "format", "subject", "pname", "publish year", "score"};
-    private static final String[] pattern = {"'%s' IN (SELECT aname FROM AuthorOf A WHERE A.ISBN = B.ISBN)",
-                                            "pname = '%s'", "title LIKE '%%%s%%'", "subject LIKE '%%%s%%'"};
+    private static final String[] pattern = {"('%s' IN (SELECT aname FROM AuthorOf A WHERE A.ISBN = B.ISBN))",
+                                            "(pname = '%s')", "(title LIKE '%%%s%%')", "(subject LIKE '%%%s%%')"};
 
     public BookBrowsing(List<List<IntStrPair>> query, int orderType){
         this.query = query;

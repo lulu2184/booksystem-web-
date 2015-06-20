@@ -21,6 +21,9 @@ public class DeclareUser extends Update{
     }
 
     protected CheckResult formatCheck(){
+        if (u1.equals(username)){
+            return CheckResult.createFail("You cannot declare yourself.");
+        }
         if (trust_num < 0 || trust_num > 1){
             return CheckResult.createFail("You should enter 0 or 1 for the trust number.");
         }

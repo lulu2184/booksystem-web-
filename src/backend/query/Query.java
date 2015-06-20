@@ -42,6 +42,7 @@ abstract public class Query {
         getSQL();
         ResultSet rs = Connector.ExecuteQuery(sql);
         result.setResult(rs, column_name);
+    //    result.setMessage(sql);
         return result;
     }
 }

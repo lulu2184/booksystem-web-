@@ -22,6 +22,10 @@ public class QueryResult {
 
     }
 
+    public void setMessage(String msg){
+        message = msg;
+    }
+
     public void setFieldsName(String[] str_array){
         fields_name = Arrays.asList(str_array);
     }
