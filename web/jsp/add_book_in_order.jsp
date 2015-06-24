@@ -17,9 +17,9 @@
 
 	<body>
 		<div>
-			<% String ISBN=request.getParameter("ISBN"); %>
+			<% String order=(String)session.getAttribute("order"); %>
 			
-			<h1>Give Feedback to # <%=ISBN%></h1>
+			<h1>Add book to order # <%=order%></h1>
 			<div class="radius-grey-div add-book-order-box">
 				<form name="add_book" method=post onsubmit="check_num_form(this)" action="handle/add_book_in_orders.jsp">
 					ISBN:<input typt="text" name="ISBN"/>
