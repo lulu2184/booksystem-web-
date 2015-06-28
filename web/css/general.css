@@ -6,6 +6,7 @@ table{
 }
 td{
 	border: 1px #bebebe solid;
+	padding: 8px;
 }
 tr{
 	text-align: center;
@@ -18,11 +19,12 @@ tr{
 .details{
 	background-color: #1B9AF7;
 	border-color: #1B9AF7;
-	border-radius: 5px;
+	border-radius: 10px;
 	text-decoration: none;
 	height: 30px;
 	width: 50px;
 	color: white;
+	padding: 4px;
 }
 
 .details:visited{
