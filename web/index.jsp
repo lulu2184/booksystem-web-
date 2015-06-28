@@ -42,7 +42,7 @@
 							<input type="button" class="sidebar-button" id="orders-button" onclick="orders_page()" value="Orders"/>
 						</li>
 						<li>
-							<input type="button" class="sidebar-button" id="summary-button" onclick="summary_page()" value="Summary"/>
+							<input type="button" class="sidebar-button" id="summary-button" onclick="summary_page()" value="Statistics"/>
 						</li>
 						<li>
 							<input type="button" class="sidebar-button" id="browsing-button" onclick="browsing()" value="Book Browsing"/>
