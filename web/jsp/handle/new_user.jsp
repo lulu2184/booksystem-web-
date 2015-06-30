@@ -12,12 +12,10 @@
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			String fullname = request.getParameter("fullname");
-			double price = Double.parseDouble(request.getParameter("price"));
-			String format = request.getParameter("format");
-			String subject = request.getParameter("subject");
-			String pname = request.getParameter("pname");
-			String pyear = request.getParameter("pyear");
-			BookInfo info = new BookInfo(username, password, fullname, age, address, phone);
+			Integer age = Integer.valueOf(request.getParameter("age"));
+			String address = request.getParameter("address");
+			String phone = request.getParameter("phone");
+			UserInfo info = new UserInfo(username, password, fullname, age, address, phone);
 
 			try{
 				Connector.start();

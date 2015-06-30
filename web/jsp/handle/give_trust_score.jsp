@@ -20,7 +20,7 @@
 					<meta http-equiv="Refresh" content="3;url=../users.jsp" />
 		<%
 				}else{
-					out.println("<h1> Unsuccessfull to give feedback. </h1>");
+					out.println("<h1> Unsuccessfull to give score to " + u2 + ". </h1>");
 					out.println("<h1>" + result.getMessage() + "</h1>");
 					out.println("<meta http-equiv=\"Refresh\" content=\"5;url=../users.jsp\" />");
 				}
